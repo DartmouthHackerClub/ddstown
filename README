@@ -1,0 +1,65 @@
+DDSTOWN
+=======
+This is a site that gives users userful info about their DDS usage.
+
+It's a little weird in that it needs to be launched from a bookmarklet.
+
+We get the user to log in to managemyid and then grab her data from the browser and send it to our back-end.
+
+This way we don't have to store their managemyid password or anything.
+
+However, we /do/ store people's usage data. For analytics.
+
+
+
+Parts
+====
+
+bookmarklet/
+------------
+The code for the bookmarklet. There's one html page that actually has the bookmarklet link that the user should drag in to her favorites bar. But this just pulls in some other javascript. The other javascript it pulls in in also in this dir. (Conveniently, the bookrmarklet also pulls in jquery!)
+
+rails/
+------
+the back-end code.
+
+front_end/
+----------
+the front-end code.
+
+sample_data/
+------------
+sample data
+
+Interfaces
+==========
+NOTE: READ THIS. EACH TEAM SHOULD HAVE A GOOD SENSE OF WHAT THEIR PART INPUTS AND OUTPUTS
+communicate early and often with the team(s) that you interface with
+bookmarklet:
+------------
+input: user clicks it :)
+output: a post request to our rails back-end, containing two fields:
+    current_balance_html: the full html of the "Current Balance" page from ManageMyID
+    transaction_history_html: the full html of the  "Transaction History" page (after form submission) from ManageMyID
+    sample versions of both of these pages are in 
+
+rails/
+------
+input: the output from the bookmarklet (see above)
+output: sends the right values/data to a rails view
+        
+front_end/
+----------
+should be clear by now.
+the front_end team should feel free to ignore rails initially and simply build a static html/js page with hard-coded data. we can convert it to a rails view easily later.
+
+Game Plan
+=========
+* make sure everyone is on the same page for this design
+* break in to teams
+* hack
+* eat pizza
+* ????
+* profit
+
+If people want to spin off and do non-tech stuff (thinking about advertising this, etc), that could be cool.
