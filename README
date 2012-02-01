@@ -61,5 +61,9 @@ Game Plan
 * eat pizza
 * ????
 * profit
+* probably we'll want to ditch our initial 3-directory code layout once we're actually stitching the pieces together
+** the front_end goes in rails' views dir, and the bookmarklet payload/"addendum" goes in rails' "static files" dir.
+* advertise on bored@baker
+* advertise elsewhere
 
 If people want to spin off and do non-tech stuff (thinking about advertising this, etc), that could be cool.
