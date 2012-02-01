@@ -17,15 +17,37 @@ Parts
 
 bookmarklet/
 ------------
-The code for the bookmarklet. There's one html page that actually has the bookmarklet link that the user should drag in to her favorites bar. But this just pulls in some other javascript. The other javascript it pulls in in also in this dir. (Conveniently, the bookrmarklet also pulls in jquery!)
+The code for the bookmarklet.
+
+There's one html page that actually has the bookmarklet link that the user should drag in to her favorites bar. But this just pulls in some other javascript. The other javascript it pulls in in also in this dir (addendum.js). (Conveniently, the bookrmarklet also pulls in jquery!)
+
+addendum.js does this, or something like it:
+* log the person in to managemyid
+** just send to login page?
+** open up an iframe and have them log in through it?
+* send 2 background/ajax requests
+** GET: the current balance page
+** POST: the transaction_history page (needs to send the right form data to get a full transaction history)
+* send the user to our rails back-end, via post, including the in
 
 rails/
 ------
 the back-end code.
 
+* takes the html for the two pages from managemyid
+* parses the raw data out of them
+* stores that raw data
+** ties it to a user so that we know it's the same person when we get their data again
+** but probably just uses a hash of the name as the identifier, so that we can protect anonymity
+* computes some useful information from the raw data
+* passes that useful information to the rails front-end view
+
+
 front_end/
 ----------
 the front-end code.
+
+* displays useful information about DDS usage
 
 sample_data/
 ------------
