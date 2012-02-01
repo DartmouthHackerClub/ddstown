@@ -63,7 +63,7 @@ input: user clicks it :)
 output: a post request to our rails back-end, containing two fields:
     current_balance_html: the full html of the "Current Balance" page from ManageMyID
     transaction_history_html: the full html of the  "Transaction History" page (after form submission) from ManageMyID
-    sample versions of both of these pages are in 
+    sample versions of both of these pages are in sample_data/
 
 rails/
 ------
