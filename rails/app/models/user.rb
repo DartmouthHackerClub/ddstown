@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
     self.current_plan.dba - self.purchases.sum(:amount)
   end
 
+  def spent_on(day)
+    Purchase.where(:user_id => self, :time => day..day.tomorrow).sum(:amount)
+  end
+
   def spent_at(location)
     Purchase.where(:user_id => self, :location => location).sum(:amount)
   end
