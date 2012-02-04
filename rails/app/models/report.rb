@@ -11,7 +11,10 @@ class Report < ActiveRecord::Base
       next if location !~ /Novack|Collis|Commons|Courtyard|King/i
 
       if plan =~ /SmartChoice/
-        user.create_swipe(:location => location, :time => )
+        user.create_swipe(:location => location, :time => time)
+      elsif plan =~ /Dining/
+        user.create_purchase(:location => location, :amount => amount, :time => time)
+      end
     end
 
   end
