@@ -1,7 +1,6 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>ManageMyID Transaction History</title>
 <link href="/css/CSGoldWeb.css" rel="stylesheet" type="text/css">
@@ -12,31 +11,33 @@
 </head>
 <body>
 <table width="770" border="0" cellpadding="0" cellspacing="0">
-	<tr class="logo">
+	<tbody><tr class="logo">
 		<td width="100%"><img src="/images/mmid_logo.jpg"></td>
 		<td><img src="/images/banner.jpg"></td>
 		<td><img src="/images/hdr_curve.gif"></td>
 	</tr>
 	<tr height="7"></tr>
-	</table>
+	</tbody></table>
+
 <table border="0" cellpadding="0" cellspacing="0">
-	<tr>
+	<tbody><tr>
 					<td valign="top"><div id="menu">
 <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
-		<tr height="1"><td valign="top"><table border="0" cellpadding="0" cellspacing="0">
-			<tr><td class="flyoutLink"><a href="/student/welcome.php">CURRENT BALANCE</a></td></tr>
+		<tbody><tr height="1"><td valign="top"><table border="0" cellpadding="0" cellspacing="0">
+			<tbody><tr><td class="flyoutLink"><a href="/student/welcome.php">CURRENT BALANCE</a></td></tr>
 					<tr><td class="flyoutLink"><a href="/student/svc_history.php">TRANSACTION HISTORY</a></td></tr>													<tr><td>&nbsp;</td></tr> 					<tr><td class="flyoutLink"><a href="/student/svc_deposit.php">DEPOSIT TO ACCOUNT</a></td></tr>			<tr><td class="flyoutLink"><a href="/student/guest_invite_link.php">INVITE TO DEPOSIT</a></td></tr>							<tr><td>&nbsp;</td></tr>
 												<tr><td class="flyoutLink"><a href="/student/change_email.php">CHANGE EMAIL</a></td></tr>
 		<tr><td class="flyoutLink"><a href="/student/password.php">CHANGE PASSWORD</a></td></tr>
 		<tr><td class="flyoutLink"><a href="/logout.php?dir=student">LOG OUT</a></td></tr>
 		<tr><td class="flyoutLink"><a href="mailto:dartmouth.card@dartmouth.edu">CONTACT SUPPORT</a></td></tr>
-		</table></td></tr>
-	<tr><td align="center"><img src="/images/dartmouth_left.jpg"></td></tr></table>
+		</tbody></table></td></tr>
+	<tr><td align="center"><img src="/images/dartmouth_left.jpg"></td></tr></tbody></table>
 </div>
-<div align="right"><img src="/images/ftr-curve-left.gif"></div></td>
+<div align="right"><img src="/images/ftr-curve-left.gif"></div>
+</td>
 				<td valign="top">
 			<div id="contentNarrow"><div id="pageHeaderNarrow">
-						<div align="right">Welcome D. Phinney!</div>
+						<div align="right">Welcome Marco Peraza!</div>
 			<h2><span style="float: left">TRANSACTION HISTORY</span>
 			        <span style="float: right; font-size: 10px; color: #000000;">
 					<a href="/common/what_is_mmid.php">What is ManageMyId?</a> |
@@ -44,165 +45,733 @@
 					</span>
 			     </h2>
 			</div>
-<!-- This is where the Main data will start. DO NOT PUT ANYTHING AFTER THIS --><p class="subText">Select a date range for which you would like to see your account activity.<br />
-Then select the account for which you would like to see the history.
-<form name="svcHist" method="post" action="svc_history_view.php">
-<font class="invalid"></font>
-<table border="0" frame="void" cellspacing=15>
-  <tr>
-    <td align="center"><b><font class="invalid"></font> From</b><br /><nobr><select name="FromMonth">
-<option label="January" value="01" selected="selected">January</option>
-<option label="February" value="02">February</option>
-<option label="March" value="03">March</option>
-<option label="April" value="04">April</option>
-<option label="May" value="05">May</option>
-<option label="June" value="06">June</option>
-<option label="July" value="07">July</option>
-<option label="August" value="08">August</option>
-<option label="September" value="09">September</option>
-<option label="October" value="10">October</option>
-<option label="November" value="11">November</option>
-<option label="December" value="12">December</option>
-</select>
-<select name="FromDay">
-<option label="01" value="1">01</option>
-<option label="02" value="2">02</option>
-<option label="03" value="3">03</option>
-<option label="04" value="4">04</option>
-<option label="05" value="5">05</option>
-<option label="06" value="6">06</option>
-<option label="07" value="7">07</option>
-<option label="08" value="8">08</option>
-<option label="09" value="9">09</option>
-<option label="10" value="10">10</option>
-<option label="11" value="11">11</option>
-<option label="12" value="12">12</option>
-<option label="13" value="13">13</option>
-<option label="14" value="14">14</option>
-<option label="15" value="15">15</option>
-<option label="16" value="16">16</option>
-<option label="17" value="17">17</option>
-<option label="18" value="18">18</option>
-<option label="19" value="19">19</option>
-<option label="20" value="20">20</option>
-<option label="21" value="21">21</option>
-<option label="22" value="22">22</option>
-<option label="23" value="23">23</option>
-<option label="24" value="24">24</option>
-<option label="25" value="25">25</option>
-<option label="26" value="26">26</option>
-<option label="27" value="27">27</option>
-<option label="28" value="28">28</option>
-<option label="29" value="29">29</option>
-<option label="30" value="30">30</option>
-<option label="31" value="31" selected="selected">31</option>
-</select>
-<select name="FromYear">
-<option label="2012" value="2012">2012</option>
-<option label="2011" value="2011" selected="selected">2011</option>
-</select></nobr>
-	</td>
-    <td align="center"><b><font class="invalid"></font> To</b><br /><nobr><select name="ToMonth">
-<option label="January" value="01" selected="selected">January</option>
-<option label="February" value="02">February</option>
-<option label="March" value="03">March</option>
-<option label="April" value="04">April</option>
-<option label="May" value="05">May</option>
-<option label="June" value="06">June</option>
-<option label="July" value="07">July</option>
-<option label="August" value="08">August</option>
-<option label="September" value="09">September</option>
-<option label="October" value="10">October</option>
-<option label="November" value="11">November</option>
-<option label="December" value="12">December</option>
-</select>
-<select name="ToDay">
-<option label="01" value="1">01</option>
-<option label="02" value="2">02</option>
-<option label="03" value="3">03</option>
-<option label="04" value="4">04</option>
-<option label="05" value="5">05</option>
-<option label="06" value="6">06</option>
-<option label="07" value="7">07</option>
-<option label="08" value="8">08</option>
-<option label="09" value="9">09</option>
-<option label="10" value="10">10</option>
-<option label="11" value="11">11</option>
-<option label="12" value="12">12</option>
-<option label="13" value="13">13</option>
-<option label="14" value="14">14</option>
-<option label="15" value="15">15</option>
-<option label="16" value="16">16</option>
-<option label="17" value="17">17</option>
-<option label="18" value="18">18</option>
-<option label="19" value="19">19</option>
-<option label="20" value="20">20</option>
-<option label="21" value="21">21</option>
-<option label="22" value="22">22</option>
-<option label="23" value="23">23</option>
-<option label="24" value="24">24</option>
-<option label="25" value="25">25</option>
-<option label="26" value="26">26</option>
-<option label="27" value="27">27</option>
-<option label="28" value="28">28</option>
-<option label="29" value="29">29</option>
-<option label="30" value="30">30</option>
-<option label="31" value="31" selected="selected">31</option>
-</select>
-<select name="ToYear">
-<option label="2012" value="2012" selected="selected">2012</option>
-<option label="2011" value="2011">2011</option>
-</select></nobr>
-	</td>
-  </tr>
-</table>
-<br>
-<table border="0">
-  <tr>
-    <th>Accounts:</th>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-	<td>
-				<select name="plan">
-							<option value="S_All_" selected="selected">
-					All Plans  				</option>
-							<option value="S31" >
-					DDS Charging (31) 				</option>
-							<option value="S32" >
-					Dining DBA (32) 				</option>
-							<option value="S40" >
-					Discretionary (40) 				</option>
-							<option value="S41" >
-					Fees &amp; Fines (41) 				</option>
-					</select>
-			</td>
-  </tr>
-</table>
-		<br>
-	<table width="230" border="0">
-		<tr align="center">
-			<td><input class="ImageButton" type="submit" name="submit" value="Submit" /></td>
-			<td><input class="ImageButton" type="button" value="Cancel" onClick="location = 'welcome.php'; return false" /></td>
-		</tr>
-	</table>
+<!-- This is where the Main data will start. DO NOT PUT ANYTHING AFTER THIS -->
+<p class="subText">For <b>All Plans</b> from 01/04/2012 to 02/04/2012.</p>
+<p>
+	</p><form name="frmQuickHistory" method="post" action="svc_history.php">
+	<input type="hidden" id="planID" name="planID" value="">
 	</form>
+	<script language="javascript">
+		function QuickHistory( planID )
+		{
+			document.getElementById( 'planID' ).value = planID;
+			document.frmQuickHistory.submit();
+		}
+	</script>
+		<table class="Data" border="0" cellpadding="0" cellspacing="2"><thead>
+		<tr><th>Post Date</th><th>Location</th><th>Account</th>
+		<th>Type</th>		<th>Amount</th>
+					</tr>
+
+				
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/04/2012 11:02:30</td>
+					<td rowspan="1" width="120">LS2Snack</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.00</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/04/2012 13:49:46</td>
+					<td rowspan="1" width="120">Novack Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">1</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/04/2012 19:07:31</td>
+					<td rowspan="1" width="120">53 Commons</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">1</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/05/2012 14:04:31</td>
+					<td rowspan="1" width="120">Topside</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S31' );">DDS Charging</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$16.09</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/05/2012 14:06:31</td>
+					<td rowspan="1" width="120">Topside</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S31' );">DDS Charging</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$2.46</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/05/2012 22:34:18</td>
+					<td rowspan="1" width="120">Courtyard Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$11.50</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/07/2012 22:29:30</td>
+					<td rowspan="1" width="120">Courtyard Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$7.60</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/08/2012 15:38:26</td>
+					<td rowspan="1" width="120">Novack Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$4.00</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/08/2012 23:26:54</td>
+					<td rowspan="1" width="120">King Arthur Flour Coffee Bar</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$18.52</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/08/2012 23:43:35</td>
+					<td rowspan="1" width="120">Novack Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$2.00</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/09/2012 04:31:38</td>
+					<td rowspan="1" width="120">Nightly Meal Reset</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">-4</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/09/2012 15:45:09</td>
+					<td rowspan="1" width="120">W-Lord</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.25</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/09/2012 16:35:05</td>
+					<td rowspan="1" width="120">D-Lord</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.25</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/09/2012 23:46:36</td>
+					<td rowspan="1" width="120">King Arthur Flour Coffee Bar</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$5.13</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/09/2012 23:50:51</td>
+					<td rowspan="1" width="120">Novack Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$4.50</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/11/2012 20:22:51</td>
+					<td rowspan="1" width="120">Novack Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">1</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/11/2012 20:22:59</td>
+					<td rowspan="1" width="120">Novack Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$2.65</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/12/2012 04:32:00</td>
+					<td rowspan="1" width="120">Nightly Meal Reset</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">0</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/12/2012 13:51:27</td>
+					<td rowspan="1" width="120">53 Commons</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">1</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/14/2012 13:39:12</td>
+					<td rowspan="1" width="120">Novack Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$8.30</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/15/2012 18:06:51</td>
+					<td rowspan="1" width="120">53 Commons</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">1</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/16/2012 04:31:26</td>
+					<td rowspan="1" width="120">Nightly Meal Reset</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">-3</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/16/2012 11:03:16</td>
+					<td rowspan="1" width="120">53 Commons</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">1</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/16/2012 21:51:30</td>
+					<td rowspan="1" width="120">ManageMyID Web Deposits</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$-20.00</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/16/2012 21:57:26</td>
+					<td rowspan="1" width="120">W-Lord</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.25</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/17/2012 02:28:09</td>
+					<td rowspan="1" width="120">Snack-Streeter</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.35</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/17/2012 04:31:46</td>
+					<td rowspan="1" width="120">Nightly Meal Reset</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">0</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/17/2012 08:05:36</td>
+					<td rowspan="1" width="120">D-Lord</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.25</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/17/2012 18:08:31</td>
+					<td rowspan="1" width="120">53 Commons</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">1</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/18/2012 16:17:21</td>
+					<td rowspan="1" width="120">Novack Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$6.35</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/18/2012 16:34:09</td>
+					<td rowspan="1" width="120">Coke-Streeter</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.75</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/19/2012 03:02:22</td>
+					<td rowspan="1" width="120">Snack-Streeter</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.90</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/19/2012 17:05:57</td>
+					<td rowspan="1" width="120">Topside</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S31' );">DDS Charging</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$5.91</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/19/2012 18:52:11</td>
+					<td rowspan="1" width="120">Courtyard Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">1</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/19/2012 18:52:23</td>
+					<td rowspan="1" width="120">Courtyard Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$3.55</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/19/2012 19:20:49</td>
+					<td rowspan="1" width="120">Courtyard Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$4.40</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/20/2012 13:39:03</td>
+					<td rowspan="1" width="120">LS1Snack</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.10</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/20/2012 14:54:07</td>
+					<td rowspan="1" width="120">LS2Snack</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$3.00</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/21/2012 13:57:51</td>
+					<td rowspan="1" width="120">Snack-Streeter</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.10</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/21/2012 13:58:13</td>
+					<td rowspan="1" width="120">Snack-Streeter</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.00</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/21/2012 20:16:34</td>
+					<td rowspan="1" width="120">Snack-McLane</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.65</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/22/2012 17:37:54</td>
+					<td rowspan="1" width="120">Courtyard Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">1</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/22/2012 17:38:02</td>
+					<td rowspan="1" width="120">Courtyard Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$3.05</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/23/2012 04:31:45</td>
+					<td rowspan="1" width="120">Nightly Meal Reset</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">-4</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/23/2012 16:39:15</td>
+					<td rowspan="1" width="120">W-Lord</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.25</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/23/2012 17:20:32</td>
+					<td rowspan="1" width="120">D-Lord</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.25</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/23/2012 18:13:49</td>
+					<td rowspan="1" width="120">53 Commons</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">1</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/24/2012 04:31:51</td>
+					<td rowspan="1" width="120">Nightly Meal Reset</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">0</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/24/2012 14:20:35</td>
+					<td rowspan="1" width="120">Novack Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$5.95</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/24/2012 18:36:44</td>
+					<td rowspan="1" width="120">53 Commons</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">1</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/25/2012 19:54:45</td>
+					<td rowspan="1" width="120">53 Commons</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">1</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/27/2012 12:50:04</td>
+					<td rowspan="1" width="120">Novack Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$5.95</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/27/2012 13:02:37</td>
+					<td rowspan="1" width="120">LS2Snack</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.10</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/28/2012 16:03:03</td>
+					<td rowspan="1" width="120">Courtyard Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$11.30</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/29/2012 19:37:20</td>
+					<td rowspan="1" width="120">53 Commons</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">1</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/30/2012 04:31:38</td>
+					<td rowspan="1" width="120">Nightly Meal Reset</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">-4</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">01/30/2012 12:29:22</td>
+					<td rowspan="1" width="120">LS1Snack</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S40' );">Discretionary</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$1.00</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">01/31/2012 22:25:10</td>
+					<td rowspan="1" width="120">Novack Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$22.60</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">02/01/2012 05:20:39</td>
+					<td rowspan="1" width="120">PatronImport Location</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S31' );">DDS Charging</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$-24.46</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">02/02/2012 17:36:44</td>
+					<td rowspan="1" width="120">53 Commons</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">1</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">02/03/2012 00:05:54</td>
+					<td rowspan="1" width="120">Collis Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$13.70</td>
+																</tr>
+						
+					<tr class="row2">
+								 					<td rowspan="1" width="140">02/03/2012 00:27:56</td>
+					<td rowspan="1" width="120">Collis Cafe</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'S32' );">Dining DBA</a>
+				</td>
+				<td width="80">
+					Debit
+									</td>									<td align="right" width="60">$2.95</td>
+																</tr>
+						
+					<tr class="row1">
+								 					<td rowspan="1" width="140">02/03/2012 04:32:11</td>
+					<td rowspan="1" width="120">Nightly Meal Reset</td>
+								<td width="160">
+				<a href="javascript:void(0)" onclick="QuickHistory( 'M65' );">SmartChoice5</a>
+				</td>
+				<td width="80">
+					Meal
+									</td>									<td align="right" width="60">0</td>
+																</tr>
+				</thead></table>
 <!-- This is where the Main data will end. DO NOT PUT ANYTHING BEFORE THIS -->
 		</div><div align="right"><img src="/images/ftr-curve-right.gif"></div>		</td>
 	</tr>
-</table>
+</tbody></table>
 <table width="770" border="0" cellpadding="0" cellspacing="0">
-	<tr><td>
-		<div align="center"><font class="footer" size="2">&copy;2007-2010 The CBORD Group, Inc. All rights reserved. &nbsp;
+	<tbody><tr><td>
+		<div align="center"><font class="footer" size="2">©2007-2010 The CBORD Group, Inc. All rights reserved. &nbsp;
 		<a href="http://www.cbord.com">Company Home</a></font></div>
 	</td></tr>
 	<tr height="20"></tr>
 	<tr>
 		<td align="center">
 			
-<script language='JavaScript' type='text/javascript' src='https://ads.studentadvantage.com/phpAdsNew/adx.js'></script>
-<script language='JavaScript' type='text/javascript'>//<!--
+<script language="JavaScript" type="text/javascript" src="https://ads.studentadvantage.com/phpAdsNew/adx.js"></script>
+<script language="JavaScript" type="text/javascript">//<!--
 if (!document.phpAds_used) document.phpAds_used = ',';
 phpAds_random = new String (Math.random()); phpAds_random = phpAds_random.substring(2,11);
 document.write ("<" + "script language='JavaScript' type='text/javascript' src='");
@@ -211,14 +780,14 @@ document.write ("&amp;what=zone:40");
 document.write ("&amp;exclude=" + document.phpAds_used);
 if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
 document.write ("'><" + "/script>");
-//--></script>
+//--></script><script language="JavaScript" type="text/javascript" src="https://ads.studentadvantage.com/phpAdsNew/adjs.php?n=359219076&amp;what=zone:40&amp;exclude=,&amp;referer=https%3A//dartmouth.managemyid.com/student/svc_history.php"></script>
 <noscript>
-	<a href='https://ads.studentadvantage.com/phpAdsNew/adclick.php?n=a0defdf6' target='_blank'>
-	<img src='https://ads.studentadvantage.com/phpAdsNew/adview.php?what=zone:40&amp;n=a0defdf6' border='0' alt=''></a>
+	&lt;a href='https://ads.studentadvantage.com/phpAdsNew/adclick.php?n=a0defdf6' target='_blank'&gt;
+	&lt;img src='https://ads.studentadvantage.com/phpAdsNew/adview.php?what=zone:40&amp;amp;n=a0defdf6' border='0' alt=''&gt;&lt;/a&gt;
 </noscript>&nbsp;
 			
-<script language='JavaScript' type='text/javascript' src='https://ads.studentadvantage.com/phpAdsNew/adx.js'></script>
-<script language='JavaScript' type='text/javascript'>//<!--
+<script language="JavaScript" type="text/javascript" src="https://ads.studentadvantage.com/phpAdsNew/adx.js"></script>
+<script language="JavaScript" type="text/javascript">//<!--
 if (!document.phpAds_used) document.phpAds_used = ',';
 phpAds_random = new String (Math.random()); phpAds_random = phpAds_random.substring(2,11);
 document.write ("<" + "script language='JavaScript' type='text/javascript' src='");
@@ -227,14 +796,14 @@ document.write ("&amp;what=zone:39");
 document.write ("&amp;exclude=" + document.phpAds_used);
 if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
 document.write ("'><" + "/script>");
-//--></script>
+//--></script><script language="JavaScript" type="text/javascript" src="https://ads.studentadvantage.com/phpAdsNew/adjs.php?n=192671933&amp;what=zone:39&amp;exclude=,&amp;referer=https%3A//dartmouth.managemyid.com/student/svc_history.php"></script>
 <noscript>
-	<a href='https://ads.studentadvantage.com/phpAdsNew/adclick.php?n=ae9f9205' target='_blank'>
-	<img src='https://ads.studentadvantage.com/phpAdsNew/adview.php?what=zone:39&amp;n=ae9f9205' border='0' alt=''></a>
+	&lt;a href='https://ads.studentadvantage.com/phpAdsNew/adclick.php?n=ae9f9205' target='_blank'&gt;
+	&lt;img src='https://ads.studentadvantage.com/phpAdsNew/adview.php?what=zone:39&amp;amp;n=ae9f9205' border='0' alt=''&gt;&lt;/a&gt;
 </noscript>&nbsp;
 			
-<script language='JavaScript' type='text/javascript' src='https://ads.studentadvantage.com/phpAdsNew/adx.js'></script>
-<script language='JavaScript' type='text/javascript'>//<!--
+<script language="JavaScript" type="text/javascript" src="https://ads.studentadvantage.com/phpAdsNew/adx.js"></script>
+<script language="JavaScript" type="text/javascript">//<!--
 if (!document.phpAds_used) document.phpAds_used = ',';
 phpAds_random = new String (Math.random()); phpAds_random = phpAds_random.substring(2,11);
 document.write ("<" + "script language='JavaScript' type='text/javascript' src='");
@@ -243,22 +812,24 @@ document.write ("&amp;what=zone:40");
 document.write ("&amp;exclude=" + document.phpAds_used);
 if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
 document.write ("'><" + "/script>");
-//--></script>
+//--></script><script language="JavaScript" type="text/javascript" src="https://ads.studentadvantage.com/phpAdsNew/adjs.php?n=669547934&amp;what=zone:40&amp;exclude=,&amp;referer=https%3A//dartmouth.managemyid.com/student/svc_history.php"></script>
 <noscript>
-	<a href='https://ads.studentadvantage.com/phpAdsNew/adclick.php?n=a0defdf6' target='_blank'>
-	<img src='https://ads.studentadvantage.com/phpAdsNew/adview.php?what=zone:40&amp;n=a0defdf6' border='0' alt=''></a>
+	&lt;a href='https://ads.studentadvantage.com/phpAdsNew/adclick.php?n=a0defdf6' target='_blank'&gt;
+	&lt;img src='https://ads.studentadvantage.com/phpAdsNew/adview.php?what=zone:40&amp;amp;n=a0defdf6' border='0' alt=''&gt;&lt;/a&gt;
 </noscript>		</td>
 	</tr>
-</table>
+</tbody></table>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
+</script><script src="https://ssl.google-analytics.com/ga.js" type="text/javascript"></script>
 <script type="text/javascript">
 try {
 var pageTracker = _gat._getTracker("UA-7674357-3");
 pageTracker._trackPageview();
 } catch(err) {}
-</script>
-</body>
-</html>
+</script>
+
+
+
+</body></html>
