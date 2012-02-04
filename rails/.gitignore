@@ -16,3 +16,6 @@
 
 # Ignore emacs backups
 *~
+
+# Ignore the Gemfile lock
+Gemfile.lock
