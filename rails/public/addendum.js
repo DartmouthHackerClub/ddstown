@@ -149,6 +149,12 @@ switch(host){
         // tell them to log in!
         if(href == managemyid_login_page){
             alert('Dude, log in!');
+            try{
+                $('form').css({'background-color': 'yellow', 'font-size' : '1.2em'});
+            }
+            catch(e){
+                console.log(e);
+            }
         }
         else{
             say_were_taking_info();
