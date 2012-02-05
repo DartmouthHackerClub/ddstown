@@ -4,16 +4,24 @@ class ReportsController < ApplicationController
   end
 
   def show
-
+    @report = Report.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @report }
+    end
   end
 
   def create
-    @report = current_user.reports.build(params[:report])
+    puts "creating"
+    @report = current_user.reports.build()
+    @report.html = params[:transaction_history_html]
     @report.user = current_user
     if @report.save
+      puts "it saved"
       @report.parse
       redirect_to :controller => :swipes, :action => :index
     else
+      puts "it didn't save"
       render :action => :new
     end
   end
