@@ -44,3 +44,5 @@ gem "daemons"
 gem 'nokogiri'
 
 gem 'therubyracer'
+gem 'twitter-bootstrap-rails', :group => :assets
+
