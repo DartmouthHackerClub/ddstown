@@ -1,5 +1,5 @@
 class Report < ActiveRecord::Base
-	belongs_to :user
+  belongs_to :user
 
   def parse
     doc = Nokogiri::HTML(html)
@@ -12,11 +12,21 @@ class Report < ActiveRecord::Base
 
 
       if plan =~ /SmartChoice/
-        user.swipes.create(:location => location, :time => time)
+        
+        # parse the datetime
+        if time =~ /(\d{2})\/(\d{2})\/(\d{4}) (\d{2}):(\d{2}):(\d{2})/
+          d = DateTime.new($3.to_i, $1.to_i, $2.to_i, $4.to_i, $5.to_i, $6.to_i, '-5')
+          puts time
+          puts d
+        else
+          raise 'Failed to parse datetime'
+        end
+
+        user.swipes.find_or_create_by_location_and_time(location, d)
 
         # enroll for this term or update plan if already enrolled
         if not user.has_plan_this_term
-          user.enrollments.create(:term => Term.current_term, :plan => Plan.where(:name => plan))
+          user.enrollments.create(:term_id => Term.current_term, :plan_id => Plan.where(:name => plan))
         elsif user.current_plan.name != plan
           user.change_plan(plan)
         end
