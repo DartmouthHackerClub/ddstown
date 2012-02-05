@@ -1,0 +1,5 @@
+<%= form_for @report, :url => { :action => :create } do |f| %>
+	<%= f.text_area :html %>
+
+	<%= f.submit "Submit" %>
+<% end %>

@@ -5,7 +5,7 @@ class CreateSwipes < ActiveRecord::Migration
       t.time   :time
       
       t.integer :user_id
-
+      
       t.timestamps
     end
   end
