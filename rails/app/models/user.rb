@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   end
 
   def current_plan
-    Plan.find(Enrollment.joins(:term).where(:user_id => self).order('start DESC')[0].plan_id)
+    Plan.find(Enrollment.joins(:term).where(:user_id => self).order('start DESC').first.plan_id)
   end
 
   def remaining_dba
@@ -27,6 +27,27 @@ class User < ActiveRecord::Base
 
   def spent_at(location)
     Purchase.where(:user_id => self, :location => location).sum(:amount)
+  end
+
+  def has_plan_this_term
+    not self.enrollments.where(:term_id => Term.current_term).empty?
+  end
+
+  def change_plan(plan_name)
+    new_plan = Plan.where(:name => plan_name).first
+    # don't change anything if the plan isn't valid
+    if new_plan
+      current_term = Term.current_term
+      
+      # delete current enrollment
+      current_enrollment = Enrollment.joins(:term).where(:term_id => current_term, :user_id => self).first
+      if current_enrollment
+        self.enrollments.delete(current_enrollment)
+      end
+      
+      # create and save new enrollment
+      self.enrollments.create(:term_id => current_term, :plan => new_plan)
+    end
   end
 
 end
