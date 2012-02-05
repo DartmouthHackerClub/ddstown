@@ -1,0 +1,1 @@
+../../bookmarklet/addendum.js

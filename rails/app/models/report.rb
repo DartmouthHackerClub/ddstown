@@ -2,13 +2,11 @@ class Report < ActiveRecord::Base
   belongs_to :user
 
   def parse
-    puts "hi"
     doc = Nokogiri::HTML(html)
 
     doc.css('.Data tr').each do |row|
       data = row.text.split(/\r\n\t+/m)
-      puts data
-      time, location, plan, kind, amount = data[0], data[1], data[3], data[6], data[7]
+      time, location, plan, kind, amount = [data[0], data[1], data[3], data[6], data[7]].map { |s| s.strip }
 
       next if location !~ /Novack|Collis|Commons|Courtyard|King/i
 
