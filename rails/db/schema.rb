@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120127213018) do
+ActiveRecord::Schema.define(:version => 20120204232628) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -32,21 +32,32 @@ ActiveRecord::Schema.define(:version => 20120127213018) do
   create_table "enrollments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "plan_id"
-    t.string   "term"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "term_id"
   end
 
   create_table "plans", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.float    "price"
+    t.integer  "swipes"
+    t.float    "dba"
+    t.string   "name"
   end
 
   create_table "purchases", :force => true do |t|
-    t.integer  "location"
+    t.string   "location"
     t.time     "time"
     t.float    "amount"
     t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "reports", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "html"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -55,6 +66,15 @@ ActiveRecord::Schema.define(:version => 20120127213018) do
     t.string   "location"
     t.time     "time"
     t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "terms", :force => true do |t|
+    t.date     "start"
+    t.date     "end"
+    t.integer  "year"
+    t.string   "term"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

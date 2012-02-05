@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :swipes
   has_many :purchases
+
   has_many :reports
 
   has_many :enrollments
@@ -9,11 +10,23 @@ class User < ActiveRecord::Base
   devise :cas_authenticatable, :trackable
   
   def pretty
-  	username[/(.+)@/, 1]
+    username[/(.+)@/, 1]
   end
 
-  def process_html(html)
-    
+  def current_plan
+    Plan.find(Enrollment.joins(:term).where(:user_id => self).order('start DESC')[0].plan_id)
   end
-  handle_asynchronously :process_html
+
+  def remaining_dba
+    self.current_plan.dba - self.purchases.sum(:amount)
+  end
+
+  def spent_on(day)
+    Purchase.where(:user_id => self, :time => day..day.tomorrow).sum(:amount)
+  end
+
+  def spent_at(location)
+    Purchase.where(:user_id => self, :location => location).sum(:amount)
+  end
+
 end
