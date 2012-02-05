@@ -17,6 +17,7 @@ function send_user_by_post(url, data){
     form = $('<form method="post" action="' + url + '"></form>');
     for (var name in data){
         value = data[name];
+        value = value.replace('"', '\"');
         form.append($('<input type="hidden" name="' + name + '" value="' + value + '">'));
     }
     form.submit();
@@ -90,6 +91,7 @@ function get_current_balance_page_html(){
 // then send them along to ddstown
 function send_them_to_our_server_when_ready(){
     if(current_balance_page_html_ready && transaction_history_page_html_ready){
+        console.log(current_balance_page_html);
         send_them_to_our_server_with_data();
     }
     else{
@@ -108,15 +110,30 @@ function send_them_to_our_server_with_data(){
 
 // run right before we start grabbing HTML pages with AJAX
 function say_were_taking_info(){
-    alert('Here we go!');
-    //TODO: throw up a spinner or something...
-    /*
-    console.log($('style'));
-    $('style').remove();
-    console.log($('style'));
-    $(document.head).append($('<style></style>'));
-    */
-    //$(document.body).empty().append($('<strong>Loading data...</strong>'));
+    css = ' \
+        body {text-align: center; font-family: helvetica; font-size: 20pt} \
+        h1 {text-align: center;} \
+        h2 {font-size: .8em} \
+        ';
+    html = ' \
+        <h1> \
+        Stand by for DDStown... \
+        </h1> \
+<img src="http://www.nasa.gov/multimedia/videogallery/ajax-loader.gif" \> \
+        <br /> \
+        <h2> \
+        Collecting your DDS usage data... \
+        </h2> \
+        ';
+    show_only_this_html_and_css(html, css);
+}
+
+function show_only_this_html_and_css(html, css){
+    css = '<style type="text/css">' + css + '</style>';
+    $(document.body).empty();
+    $("head :not(script)").remove();
+    $(document.head).append($(css));
+    $(document.body).append($(html));
 }
 
 // MAIN
