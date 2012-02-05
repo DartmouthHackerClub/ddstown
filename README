@@ -19,7 +19,7 @@ bookmarklet/
 ------------
 The code for the bookmarklet.
 
-There's one html page that actually has the bookmarklet link that the user should drag in to her favorites bar. But this just pulls in some other javascript. The other javascript it pulls in in also in this dir (addendum.js). (Conveniently, the bookrmarklet also pulls in jquery!)
+There's one html page that actually has the bookmarklet link that the user should drag in to her favorites bar. But this just pulls in some other javascript. The other javascript it pulls in is also in this dir (addendum.js). (Conveniently, the bookmarklet also pulls in jquery!)
 
 addendum.js does this, or something like it:
 * log the person in to managemyid
