@@ -38,6 +38,9 @@ gem 'devise'
 gem 'devise_cas_authenticatable'
 
 gem 'delayed_job_active_record'
+
 gem "daemons"
 
 gem 'nokogiri'
+
+gem 'therubyracer'
