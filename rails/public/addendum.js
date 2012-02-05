@@ -129,6 +129,34 @@ function say_were_taking_info(){
     show_only_this_html_and_css(html, css);
 }
 
+// run when they click the bookmarklet from any page other than managemyid
+function say_were_taking_them_to_managemyid(){
+    css = ' \
+        body {text-align: center; font-family: helvetica; font-size: 20pt} \
+        h1 {text-align: center;} \
+        h2 {font-size: .8em} \
+        button {font-size: 3em} \
+        ';
+    html = ' \
+        <h1> \
+        Taking you to ManageMyID... \
+        </h1> \
+        <h2> \
+        NOTE: We\'re going to get your DDS usage data from there. We WILL store it on our servers. If you\'re embarrassed about how many Odwallas you buy or for some other reason DO NOT want us to have your DDS spending data, then just stop here. By clicking the button below, you\'re saying that you\'re cool with this. \
+        </h2> \
+        <p> \
+            When you get to ManageMyID, log in if you\'re not already logged in. Then press this bookmarklet (what brought you here) again. \
+        </p> \
+        <button>Let\'s do this &raquo;</button> \
+        ';
+    show_only_this_html_and_css(html, css);
+    $('button').click(send_them_to_managemyid);
+}
+
+function send_them_to_managemyid(){
+    window.location.href = managemyid_main_page;
+}
+
 function show_only_this_html_and_css(html, css){
     css = '<style type="text/css">' + css + '</style>';
     $(document.body).empty();
@@ -167,8 +195,14 @@ switch(host){
     // tell them we're sending them and that they should log in and then press this button again
     // then send 'em there
     default:
-        alert('Sending you to managemyid. Log in (make an account if you don\'t already have one). Then press the bookmarklet you just pressed one more time.');
-        window.location.href = managemyid_main_page;
+        try{
+            say_were_taking_them_to_managemyid();
+        }
+        catch(e){
+            console.log(e)
+            alert('Sending you to managemyid. Log in (make an account if you don\'t already have one). Then press the bookmarklet you just pressed one more time. We WILL store the DDS usage data that we get from your managemyID profile. If you\'re not cool with that, just don\'t press the bookmarklet again after hitting "OK" below');
+            send_them_to_managemyid();
+        }
         break;
 }
 
