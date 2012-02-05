@@ -21,7 +21,7 @@ class ReportsController < ApplicationController
     if @report.save
       puts "it saved"
       @report.parse
-      redirect_to :controller => :swipes, :action => :index
+      redirect_to @report
     else
       puts "it didn't save"
       render :action => :new
