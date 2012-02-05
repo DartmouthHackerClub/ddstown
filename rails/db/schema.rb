@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120127213018) do
+ActiveRecord::Schema.define(:version => 20120204210734) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -51,10 +51,25 @@ ActiveRecord::Schema.define(:version => 20120127213018) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "reports", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "html"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "swipes", :force => true do |t|
     t.string   "location"
     t.time     "time"
     t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "terms", :force => true do |t|
+    t.string   "name"
+    t.time     "start"
+    t.time     "end"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
