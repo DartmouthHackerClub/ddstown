@@ -47,3 +47,4 @@ gem 'therubyracer'
 gem 'twitter-bootstrap-rails', :group => :assets
 
 gem 'mysql'
+gem 'capistrano'
