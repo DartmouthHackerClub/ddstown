@@ -1,7 +1,7 @@
 set :application, "ddstown"
 set :repository,  "git@github.com:DartmouthHackerClub/ddstown.git"
 
-set :deploy_to, "/var/www/dds"
+set :deploy_to, "/home/deploy/ddstown"
 set :user, "deploy"
 set :use_sudo, false
 
