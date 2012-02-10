@@ -22,7 +22,9 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: mysql
+  encoding: utf8
+  database: ddstown
   pool: 5
-  timeout: 5000
+  username: ddstown
+  password: efd00cd00da79b0c2bf6897843e74f38
