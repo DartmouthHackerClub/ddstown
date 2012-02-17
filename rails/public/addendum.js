@@ -1,8 +1,15 @@
+// if you include this on all ddstown pages (in addition to the bookmarklet injecting this in some cases)
+// then we'll get bannerstudent data for free
+
+
 // CONSTANTS
 var managemyid_host = "dartmouth.managemyid.com";
+var banner_host = "banner.dartmouth.edu";
+var ddstown_host = "hacktown.cs.dartmouth.edu";
 var managemyid_main_page = "https://dartmouth.managemyid.com/student/welcome.php";
 var managemyid_login_page = "https://dartmouth.managemyid.com/student/login.php";
 var transaction_history_url = 'https://dartmouth.managemyid.com/student/svc_history_view.php';
+var banner_page_url = 'https://banner.dartmouth.edu/banner/groucho/kap_ar_dash.entry_point';
 var current_balance_page_url = 'https://dartmouth.managemyid.com/student/welcome.php';
 //var main_ddstown_site_url = "http://hacktown.cs.dartmouth.edu/ddstown/viewer";
 var main_ddstown_site_url = "http://localhost:3000/reports";
@@ -10,8 +17,10 @@ var main_ddstown_site_url = "http://localhost:3000/reports";
 // GLOBALS
 var current_balance_page_html = '';
 var transaction_history_page_html = '';
+var banner_page_html = '';
 var current_balance_page_html_ready = false;
 var transaction_history_page_html_ready = false;
+var banner_page_html_ready = false;
 
 // sends the user to the given url, with given data in post
 function send_user_by_post(url, data){
@@ -88,9 +97,32 @@ function get_current_balance_page_html(){
     });
 }
 
+// get the bannerstudent longer-form transaction history
+function get_banner_page(){
+    banner_page_post_data = {
+        'dateBegin' : '11-17-89',
+        'dateEnd' : '',
+        // seems that we can get by without these
+        //'v_empid' : 'a DND number'
+        //'AcctDesc' : 'some number'
+        'p_page' : '3',
+        };
+    $.post(banner_page_url, banner_page_post_data, function(return_data) {
+        //only do something on success or error
+    })
+    .success(function(return_data){
+        banner_page_html = return_data;
+        console.log(banner_page_html);
+        banner_page_html_ready = true;
+    })
+    .error(function(return_data){
+        handle_error_getting_html("banner page", return_data);
+    });
+}
+
 // wait until our managemyid page AJAX requests are done
 // then send them along to ddstown
-function send_them_to_our_server_when_ready(){
+function send_them_to_our_server_with_data_when_ready(){
     if(current_balance_page_html_ready && transaction_history_page_html_ready){
         console.log(current_balance_page_html);
         send_them_to_our_server_with_data();
@@ -105,6 +137,7 @@ function send_them_to_our_server_with_data(){
     post_data = {
         'current_balance_html' : current_balance_page_html,
         'transaction_history_html' : transaction_history_page_html,
+        'banner_html' : banner_html,
     };
     send_user_by_post(main_ddstown_site_url, post_data);
 }
@@ -184,12 +217,21 @@ switch(host){
                 console.log(e);
             }
         }
+        // if they aren't on the login page: let's do this!
         else{
             say_were_taking_info();
             get_current_balance_page_html();
             get_transaction_history_page_html();
-            send_them_to_our_server_when_ready();
+            send_them_to_our_server_with_data_when_ready();
         }
+        break;
+    case banner_host:
+        get_banner_page();
+        send_them_to_our_server_with_data_when_ready();
+        break;
+    case ddstown:
+        get_banner_page();
+        send_them_to_our_server_with_data_when_ready();
         break;
     // if they're not on managemyid already
     // tell them we're sending them and that they should log in and then press this button again
