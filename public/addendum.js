@@ -1,6 +1,9 @@
 // if you include this on all ddstown pages (in addition to the bookmarklet injecting this in some cases)
 // then we'll get bannerstudent data for free
 
+// NOTE: if this flag is on, we won't actually send the data along. we'll just log it to the console.
+DEBUG = true;
+
 
 // CONSTANTS
 var managemyid_host = "dartmouth.managemyid.com";
@@ -122,13 +125,20 @@ function get_banner_page(){
 
 // wait until our managemyid page AJAX requests are done
 // then send them along to ddstown
-function send_them_to_our_server_with_data_when_ready(){
-    if(current_balance_page_html_ready && transaction_history_page_html_ready){
+function send_them_to_our_server_with_data_when_ready(waiting_on){
+    ready = false;
+    if(waiting_on == 'managemyid'){
+        ready = current_balance_page_html_ready && transaction_history_page_html_ready;
+    }
+    else if(waiting_on == 'bannerstudent'){
+        ready = banner_page_html_ready;
+    }
+    if(ready){
         console.log(current_balance_page_html);
         send_them_to_our_server_with_data();
     }
     else{
-        setTimeout("send_them_to_our_server_when_ready()",10)
+        setTimeout("send_them_to_our_server_with_data_when_ready('" + waiting_on + "')",10)
     }
 }
 
@@ -137,9 +147,16 @@ function send_them_to_our_server_with_data(){
     post_data = {
         'current_balance_html' : current_balance_page_html,
         'transaction_history_html' : transaction_history_page_html,
-        'banner_html' : banner_html,
+        'banner_page_html' : banner_page_html,
     };
-    send_user_by_post(main_ddstown_site_url, post_data);
+    if(DEBUG){
+        console.log(post_data);
+        console.log(main_ddstown_site_url);
+    }
+    else{
+        send_user_by_post(main_ddstown_site_url, post_data);
+    }
+
 }
 
 // run right before we start grabbing HTML pages with AJAX
@@ -222,16 +239,17 @@ switch(host){
             say_were_taking_info();
             get_current_balance_page_html();
             get_transaction_history_page_html();
-            send_them_to_our_server_with_data_when_ready();
+            send_them_to_our_server_with_data_when_ready('managemyid');
         }
         break;
     case banner_host:
+        say_were_taking_info();
         get_banner_page();
-        send_them_to_our_server_with_data_when_ready();
+        send_them_to_our_server_with_data_when_ready('bannerstudent');
         break;
-    case ddstown:
+    case ddstown_host:
         get_banner_page();
-        send_them_to_our_server_with_data_when_ready();
+        send_them_to_our_server_with_data_when_ready('bannerstudent');
         break;
     // if they're not on managemyid already
     // tell them we're sending them and that they should log in and then press this button again
