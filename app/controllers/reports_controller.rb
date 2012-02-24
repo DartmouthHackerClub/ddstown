@@ -14,7 +14,6 @@ class ReportsController < ApplicationController
   end
 
   def create
-    puts "creating"
     @report = current_user.reports.build()
     @report.html = Base64.decode64(params[:transaction_history_html])
     @report.user = current_user

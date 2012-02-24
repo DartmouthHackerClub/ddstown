@@ -1,7 +1,56 @@
 class Report < ActiveRecord::Base
   belongs_to :user
 
+  #validates :type, :inclusion => { :in => ["banner", "managemyid"], 
+  #                                 :message => "%{value} is not a valid type" }
+
+  
+
+  def normalize_location(location)
+    case location
+    when /novack/i
+      "Novack Cafe"
+    when /collis/i
+      "Collis Cafe"
+    when /commons/i
+      "Commons Cafe"
+    when /king/i
+      "King Arthur Flour Cafe"
+    when /courtyard/i
+      "Courtyard Cafe"
+    else
+      raise "Unknown Location #{location}"
+    end
+  end
+
   def parse
+    if self.source == "banner"
+      parse_banner
+    else
+      parse_managemyid
+    end
+  end
+
+  def parse_banner
+    doc = Nokogiri::HTML(html)
+
+    # Skip header row
+    doc.css('.sortable tr')[1..-1].each do |row|
+      puts row
+      data = row.text.split(/\n/).map { |x| x.strip }
+      begin
+        location = normalize_location(data[1])
+        date = DateTime.new(data[0])
+        amount = data[2].to_i.abs
+      rescue
+        next
+      end
+
+      user.purchases.find_or_create_by_location_and_time(location, time)
+    end
+  end
+
+  def parse_managemyid
     doc = Nokogiri::HTML(html)
 
     doc.css('.Data tr').each do |row|
