@@ -20,7 +20,7 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   task :pipeline_precompile do
-    run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
+    run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
   end
 end
 

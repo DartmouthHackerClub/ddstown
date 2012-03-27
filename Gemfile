@@ -36,15 +36,11 @@ gem 'jquery-rails'
 
 gem 'devise'
 gem 'devise_cas_authenticatable'
-
 gem 'delayed_job_active_record'
-
 gem "daemons"
-
 gem 'nokogiri'
-
 gem 'therubyracer'
-gem 'twitter-bootstrap-rails', :group => :assets
-
 gem 'mysql'
 gem 'capistrano'
+gem 'twitter-bootstrap-rails'
+
