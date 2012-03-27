@@ -15,7 +15,7 @@ var transaction_history_url = 'https://dartmouth.managemyid.com/student/svc_hist
 var banner_page_url = 'https://banner.dartmouth.edu/banner/groucho/kap_ar_dash.entry_point';
 var current_balance_page_url = 'https://dartmouth.managemyid.com/student/welcome.php';
 //var main_ddstown_site_url = "http://hacktown.cs.dartmouth.edu/ddstown/viewer";
-var main_ddstown_site_url = "http://localhost:3000/reports";
+var main_ddstown_site_url = "http://dds.1337.cx/reports";
 
 // GLOBALS
 var current_balance_page_html = '';
