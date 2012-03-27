@@ -1,3 +1,5 @@
+load 'deploy/assets'
+
 set :application, "ddstown"
 set :repository,  "git@github.com:DartmouthHackerClub/ddstown.git"
 

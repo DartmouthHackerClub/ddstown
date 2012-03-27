@@ -65,7 +65,12 @@
           txtattr = { font: "12px sans-serif" };
 
           var allowance = 800; // dba allowance for the term
-          var usage = new Array(<%= current_user.purchases.group_by(&:day).map { |day, purchases| purchases.map { |p| p.amount }.reduce(:+) }.join ", " %>);
+          <%
+            since = 2.weeks.ago
+            spent_by_day = current_user.purchases.since(since).sum(:amount, :group => "DATE(time)")
+            daily_totals = (since..Date.today).map{ |date| [date, spent_by_day[date.strftime "%Y-%m-%d"] || 0] }
+          %>
+          var usage = new Array(<%= daily_totals.map { |date, total| total }.join ", " %>);
           var optimal = new Array();
           var x = new Array();
           for (var i = 0; i < usage.length; i++) {
