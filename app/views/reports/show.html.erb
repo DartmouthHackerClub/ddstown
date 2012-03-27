@@ -65,7 +65,7 @@
           txtattr = { font: "12px sans-serif" };
 
           var allowance = 800; // dba allowance for the term
-          var usage = new Array(<%= current_user.purchases.group_by(&:day).map { |purchases| purchases.map { |p| p.amount }.reduce(:+) }.join ", " %>);
+          var usage = new Array(<%= current_user.purchases.group_by(&:day).map { |day, purchases| purchases.map { |p| p.amount }.reduce(:+) }.join ", " %>);
           var optimal = new Array();
           var x = new Array();
           for (var i = 0; i < usage.length; i++) {
