@@ -2,7 +2,7 @@
 // then we'll get bannerstudent data for free
 
 // NOTE: if this flag is on, we won't actually send the data along. we'll just log it to the console.
-DEBUG = true;
+DEBUG = false;
 
 
 // CONSTANTS
