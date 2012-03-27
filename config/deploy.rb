@@ -12,12 +12,15 @@ role :web, "dds.1337.cx"                          # Your HTTP server, Apache/etc
 role :app, "dds.1337.cx"                          # This may be the same as your `Web` server
 role :db,  "dds.1337.cx", :primary => true # This is where Rails migrations will run
 
-# If you are using Passenger mod_rails uncomment this:
+after "deploy:update_code", "deploy:pipeline_precompile"
 namespace :deploy do
   task :start do ; end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+  task :pipeline_precompile do
+    run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
   end
 end
 
