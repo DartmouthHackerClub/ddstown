@@ -65,11 +65,11 @@
           txtattr = { font: "12px sans-serif" };
 
           var allowance = 800; // dba allowance for the term
-          var usage = new Array();
+          var usage = new Array(<%= current_user.purchases.group_by(&:day).map { |day| day.reduce(:+) }.join ", " %>);
           var optimal = new Array();
           var x = new Array();
-          for (var i = 0; i < 5*7; i++) {
-          usage.push(Math.random() * (allowance / (10*7)));
+          for (var i = 0; i < usage.length; i++) {
+          //usage.push(Math.random() * (allowance / (10*7)));
           optimal.push(allowance / (10*7)); // daily dba allowance
           //x.push("March " + i);
           x.push(i);

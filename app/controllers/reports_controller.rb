@@ -7,6 +7,7 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
+    @purchases = current_user.purchases
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @report }
