@@ -1,16 +1,8 @@
 Hackdds::Application.routes.draw do
-  scope "/ddstown" do
-
-    devise_for :users
-  end
-
-
+  devise_for :users
   root :to => "users#index"
-
   resources :users
-
   resources :reports
-
   resources :swipes
 
   # The priority is based upon order of creation:
