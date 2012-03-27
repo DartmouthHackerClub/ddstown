@@ -1,9 +1,7 @@
 class Purchase < ActiveRecord::Base
   belongs_to :user
 
-  def self.since(time)
-    find(:all, :conditions => ['time > ?', time])
-  end
+  scope :since, lambda { |time| where("time > ?", time) }
 
   def self.by_day
     group_by("DATE(time)").map { |day, purchases| purchases }
