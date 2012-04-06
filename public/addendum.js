@@ -2,7 +2,7 @@
 // then we'll get bannerstudent data for free
 
 // NOTE: if this flag is on, we won't actually send the data along. we'll just log it to the console.
-DEBUG = false;
+DEBUG = true;
 
 
 // CONSTANTS
@@ -15,7 +15,9 @@ var transaction_history_url = 'https://dartmouth.managemyid.com/student/svc_hist
 var banner_page_url = 'https://banner.dartmouth.edu/banner/groucho/kap_ar_dash.entry_point';
 var current_balance_page_url = 'https://dartmouth.managemyid.com/student/welcome.php';
 //var main_ddstown_site_url = "http://hacktown.cs.dartmouth.edu/ddstown/viewer";
-var main_ddstown_site_url = "http://dds.1337.cx/reports";
+//var main_ddstown_site_url = "http://dds.1337.cx/reports";
+//var main_ddstown_site_url = "http://0.0.0.0:3000/reports";
+var main_ddstown_site_url = "http://0.0.0.0:3000/users/";
 
 // GLOBALS
 var current_balance_page_html = '';
@@ -265,6 +267,38 @@ switch(host){
         }
         break;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//BASE64 stuff
 
 var Base64 = {
 

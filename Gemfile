@@ -41,6 +41,7 @@ gem "daemons"
 gem 'nokogiri'
 gem 'therubyracer'
 gem 'mysql'
+gem 'mysql2'
 gem 'capistrano'
 gem 'twitter-bootstrap-rails'
 
