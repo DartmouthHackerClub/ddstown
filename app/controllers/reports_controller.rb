@@ -16,12 +16,15 @@ class ReportsController < ApplicationController
 
   def create
     @report = current_user.reports.build()
-    @report.html = Base64.decode64(params[:transaction_history_html])
+    @report.html = params[:report][:html] || Base64.decode64(params[:report][:encoded_html])
     @report.user = current_user
+    @report.source = params[:source] || "banner" # TODO: take out this default
+    puts @report.source
     if @report.save
       puts "it saved"
+      puts report.html
       @report.parse
-      redirect_to @report
+      redirect_to "/users/#{current_user.id}"
     else
       puts "it didn't save"
       render :action => :new
@@ -30,5 +33,6 @@ class ReportsController < ApplicationController
 
   def new
     @report = current_user.reports.build
+    @report.
   end
 end

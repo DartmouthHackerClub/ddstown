@@ -1,4 +1,7 @@
 class Report < ActiveRecord::Base
+  # a report is a wrapper around html from one of our sources (bannerStudent or manageMyId
+  # a report is NOT what a user sees
+
   belongs_to :user
 
   #validates :type, :inclusion => { :in => ["banner", "managemyid"], 
@@ -26,8 +29,10 @@ class Report < ActiveRecord::Base
   def parse
     if self.source == "banner"
       parse_banner
-    else
+    elsif self.source == "managemyid"
       parse_managemyid
+    else
+      raise "Invalid source #{self.source}"
     end
   end
 
@@ -57,12 +62,10 @@ class Report < ActiveRecord::Base
       begin
         data = row.text.split(/\n+/).map { |s| s.strip }
         time = DateTime.strptime("#{data[0]} -5", "%m/%d/%Y %H:%M:%S %z")
-        location = data[1]
+        location = normalize_location(data[1])
         plan = data[3]
         kind = data[6]
         amount = data[7].gsub(/\$/, '')
-
-        next if location !~ /Novack|Collis|Commons|Courtyard|King/i
 
         if plan =~ /SmartChoice/
           user.swipes.find_or_create_by_location_and_time(location, time)
